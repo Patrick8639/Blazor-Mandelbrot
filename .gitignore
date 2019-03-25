@@ -1,0 +1,10 @@
+.vs/
+
+Bin/
+obj/
+
+!*.dll
+
+!.gitkeep
+Thumbs.db
+ehthumbs.db

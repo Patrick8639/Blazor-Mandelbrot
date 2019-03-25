@@ -1,0 +1,56 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProductVersion>3.5</ProductVersion>
+    <RootNamespace>Mandelbrot</RootNamespace>
+    <ProjectGuid>{687c03d6-db26-4b93-9d85-f20aded8bea9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>OxyMandelbrot</AssemblyName>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <TargetFramework>.NETStandard</TargetFramework>
+    <Mode>Echoes</Mode>
+    <Name>OxyMandelbrot</Name>
+    <EBuildMSBuildProjectFile>
+    </EBuildMSBuildProjectFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>False</Optimize>
+    <OutputPath>.\Bin</OutputPath>
+    <DefineConstants>DEBUG;TRACE;</DefineConstants>
+    <GeneratePDB>True</GeneratePDB>
+    <GenerateMDB>True</GenerateMDB>
+    <EnableAsserts>True</EnableAsserts>
+    <CpuType>anycpu</CpuType>
+    <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+    <EmitTailCalls>False</EmitTailCalls>
+    <EnableInlining>False</EnableInlining>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\Bin</OutputPath>
+    <CpuType>anycpu</CpuType>
+    <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+    <EmitTailCalls>True</EmitTailCalls>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ImageParameters.pas">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.pas" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="OrdinaSoft.Aspects">
+      <HintPath>..\..\ChromeLib\Bin\OrdinaSoft.Aspects.dll</HintPath>
+      <IsCirrusRef>True</IsCirrusRef>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OrdinaSoft.Base">
+      <HintPath>..\..\ChromeLib\Bin\OrdinaSoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Users\Patrick\AppData\Local\RemObjects Software\EBuild\Packages\NuGet\netstandard.library\2.0.3\build\netstandard2.0\ref\System.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.targets" />
+</Project>
