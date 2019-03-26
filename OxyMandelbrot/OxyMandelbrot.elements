@@ -9,8 +9,6 @@
     <TargetFramework>.NETStandard</TargetFramework>
     <Mode>Echoes</Mode>
     <Name>OxyMandelbrot</Name>
-    <EBuildMSBuildProjectFile>
-    </EBuildMSBuildProjectFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <Optimize>False</Optimize>
