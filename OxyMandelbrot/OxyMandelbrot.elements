@@ -9,6 +9,8 @@
     <TargetFramework>.NETStandard</TargetFramework>
     <Mode>Echoes</Mode>
     <Name>OxyMandelbrot</Name>
+    <SuppressWarnings>W27</SuppressWarnings>
+    <WarnOnCaseMismatch>False</WarnOnCaseMismatch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <Optimize>False</Optimize>
@@ -27,12 +29,22 @@
     <CpuType>anycpu</CpuType>
     <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
     <EmitTailCalls>True</EmitTailCalls>
+    <SuppressWarnings>W27</SuppressWarnings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Calculator.pas">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ImageParameters.pas">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Point.pas">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.pas" />
+    <Compile Include="Row.pas">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
@@ -42,9 +54,6 @@
       <HintPath>..\..\ChromeLib\Bin\OrdinaSoft.Aspects.dll</HintPath>
       <IsCirrusRef>True</IsCirrusRef>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="OrdinaSoft.Base">
-      <HintPath>..\..\ChromeLib\Bin\OrdinaSoft.Base.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Users\Patrick\AppData\Local\RemObjects Software\EBuild\Packages\NuGet\netstandard.library\2.0.3\build\netstandard2.0\ref\System.dll</HintPath>

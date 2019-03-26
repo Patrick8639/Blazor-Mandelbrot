@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28714.193
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "Test", "Test\Test.elements", "{90346307-2CC2-4094-89E4-6CEB89AAEFAC}"
+EndProject
+Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "OxyMandelbrot", "OxyMandelbrot\OxyMandelbrot.elements", "{687C03D6-DB26-4B93-9D85-F20ADED8BEA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90346307-2CC2-4094-89E4-6CEB89AAEFAC}.Debug|Default.ActiveCfg = Debug
+		{90346307-2CC2-4094-89E4-6CEB89AAEFAC}.Debug|Default.Build.0 = Debug
+		{90346307-2CC2-4094-89E4-6CEB89AAEFAC}.Debug|Default.Deploy.0 = Debug
+		{90346307-2CC2-4094-89E4-6CEB89AAEFAC}.Release|Default.ActiveCfg = Release
+		{90346307-2CC2-4094-89E4-6CEB89AAEFAC}.Release|Default.Build.0 = Release
+		{687C03D6-DB26-4B93-9D85-F20ADED8BEA9}.Debug|Default.ActiveCfg = Debug
+		{687C03D6-DB26-4B93-9D85-F20ADED8BEA9}.Debug|Default.Build.0 = Debug
+		{687C03D6-DB26-4B93-9D85-F20ADED8BEA9}.Debug|Default.Deploy.0 = Debug
+		{687C03D6-DB26-4B93-9D85-F20ADED8BEA9}.Release|Default.ActiveCfg = Release
+		{687C03D6-DB26-4B93-9D85-F20ADED8BEA9}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6911C96-5E8B-4D4C-8458-30D792F20F7F}
+	EndGlobalSection
+EndGlobal
