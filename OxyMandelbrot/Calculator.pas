@@ -187,26 +187,30 @@ Implementation
       Var Y   := Parameters.Bottom + (ixRow * YInc);
 
       For ixCol : Int32 := 0 To MaxNoCol Do Begin
-        Var X            := Parameters.Left + ixCol * XInc;
-        Var NbIterations := 0;
-        Var Real         := X;
-        Var Imag         := Y;
+        Var X       := Parameters.Left + ixCol * XInc;
+        Var NbIter  := 0;       // Number of iterations
+        Var Real    := X;       // Real part of current value
+        Var Imag    := Y;       // Imaginary part of current value
+        Var RealSqr :  Double;  // Square of Real
+        Var ImagSqr :  Double;  // Square of Imag
 
         Loop Begin
-          If (Real * Real) + (Imag * Imag) >= 4 Then
+          RealSqr := Real * Real;
+          ImagSqr := Imag * Imag;
+
+          If RealSqr + ImagSqr >= 4 Then
             Break;
 
-          Var NewReal := (Real * Real) - (Imag * Imag);
-          Imag        := 2 * Real * Imag + Y;
-          Real        := NewReal + X;
+          Imag := (2 * Real * Imag) + Y;
+          Real := (RealSqr) - (ImagSqr) + X;
 
-          Inc (NbIterations);
-          If NbIterations >= Parameters.MaxNbIterations Then
+          Inc (NbIter);
+          If NbIter >= Parameters.MaxNbIterations Then
             Break
         End;
 
         Row.Points [ixCol] := New Point (X, Y,
-                                         NbIterations := NbIterations)
+                                         NbIterations := NbIter)
       End;
 
       Rows [ixRow] := Row

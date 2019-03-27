@@ -1,3 +1,29 @@
 ﻿@page "/"
 
-<canvas id="Canvas" />
+@using Microsoft.JSInterop;
+@using Mandelbrot;
+
+@inject IJSRuntime JSRuntime;
+
+<canvas id="Canvas"
+        onclick="@ChangeColor" />
+
+@functions {
+
+  private Random Random = new Random();
+
+  async void ChangeColor()
+  {
+    var Height = await JSRuntime.InvokeAsync <Double> ("interop.GetCanvasHeight");
+    var Width  = await JSRuntime.InvokeAsync <Double> ("interop.GetCanvasWidth");
+
+    Console.WriteLine(Width.ToString() + " " + Height.ToString());
+
+    //    for (int ixRow = 0; ixRow < Canvas.)
+    //      var Row = new Row(0);
+    //
+    //    var Color = "#" + Random.Next(0xFFFFFF).ToString("X6");
+    //    await JSRuntime.InvokeAsync <Object> ("interop.test", Color);
+  }
+
+}

@@ -5,7 +5,8 @@
     <ProjectGuid>{90346307-2cc2-4094-89e4-6ceb89aaefac}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AssemblyName>Test</AssemblyName>
-    <ApplicationIcon>Properties\App.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <Name>Test</Name>
