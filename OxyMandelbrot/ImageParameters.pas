@@ -64,6 +64,16 @@ Interface
       Property Bottom : Double;
 
       /// <summary>
+      ///   Gets or sets the escape radius.
+      /// </summary>
+      /// <value>The escape radius.</value>
+      /// <remarks>
+      ///   When the absolute value of the calculated value is greater than or equal to this
+      ///   value, the calculation is stopped.
+      /// </remarks>
+      Property EscapeRadius : Double;
+
+      /// <summary>
       ///   Gets or sets the leftmost coordinate of the image.
       /// </summary>
       /// <value>The leftmost coordinate.</value>
@@ -144,6 +154,7 @@ Implementation
     _Right  :=  0.75;
     _Bottom := -1.50;
     _Top    :=  1.50
+    EscapeRadius    :=   2.0
   End;
 
 (*---------------------------------------------------------------------------------------------*)

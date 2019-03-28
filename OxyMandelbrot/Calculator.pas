@@ -179,6 +179,7 @@ Implementation
     Var MaxNbIter := Parameters.MaxNbIterations;
     Var NbColumns := Parameters.NbColumns;
     Var MaxNoCol  := NbColumns - 1;
+    Var MaxValue  := Parameters.EscapeRadius * Parameters.EscapeRadius;
     Var Left      := Parameters.Left;
     Var Bottom    := Parameters.Bottom;
     Var XInc      := (Parameters.Right - Left  ) / MaxNoCol;
@@ -204,7 +205,7 @@ Implementation
           RealSqr := Real * Real;
           ImagSqr := Imag * Imag;
 
-          If RealSqr + ImagSqr >= 4 Then
+          If RealSqr + ImagSqr >= MaxValue Then
             Break;
 
           Imag := (2 * Real * Imag) + Y;
