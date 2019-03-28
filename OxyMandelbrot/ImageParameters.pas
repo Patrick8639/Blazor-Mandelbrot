@@ -15,9 +15,6 @@
 Interface
 
 
-  Uses
-    OrdinaSoft.Aspects;
-
 (*---------------------------------------------------------------------------------------------*)
 
   Type
@@ -37,7 +34,9 @@ Interface
       /// <remarks>
       ///   The <see cref="Left" />, <see cref="Top" />, <see cref="Right" /> and
       ///   <see cref="Bottom" /> properties are initialized to calculate the full set, from
-      ///   -2.25 to 0.75 horizontally and from -1.5 to 1.5 vertically.
+      ///   -2.25 to 0.75 horizontally and from -1.5 to 1.5 vertically. The
+      ///   <see cref="MaxNbIterations">maximum number of iterations</see> is set to 256. The
+      ///   <see cref="EscapeRadius">escape radius</see> is set to 2.0.
       /// </remarks>
       Constructor;
 
@@ -53,14 +52,12 @@ Interface
       /// <remarks>
       ///   Setting this value to <b>true</b> aborts the calculation.
       /// </remarks>
-      [Aspect: OsProperty]
       Property Abort : Boolean;
 
       /// <summary>
       ///   Gets or sets the bottomtmost coordinate of the image.
       /// </summary>
       /// <value>The bottomtmost coordinate.</value>
-      [Aspect: OsProperty]
       Property Bottom : Double;
 
       /// <summary>
@@ -77,7 +74,6 @@ Interface
       ///   Gets or sets the leftmost coordinate of the image.
       /// </summary>
       /// <value>The leftmost coordinate.</value>
-      [Aspect: OsProperty]
       Property Left : Double;
 
       /// <summary>
@@ -87,35 +83,30 @@ Interface
       /// <remarks>
       ///   The calculator will stop iterations when this value is reached.
       /// </remarks>
-      [Aspect: OsProperty]
       Property MaxNbIterations : Int32;
 
       /// <summary>
       ///   Gets or sets the number of columns. 
       /// </summary>
       /// <value>The number of columns.</value>
-      [Aspect: OsProperty]
       Property NbColumns : Int32;
 
       /// <summary>
       ///   Gets or sets the number of rows. 
       /// </summary>
       /// <value>The number of rows.</value>
-      [Aspect: OsProperty]
       Property NbRows : Int32;
 
       /// <summary>
       ///   Gets or sets the rightmost coordinate of the image.
       /// </summary>
       /// <value>The rightmost coordinate.</value>
-      [Aspect: OsProperty]
       Property Right : Double;
 
       /// <summary>
       ///   Gets or sets the topmost coordinate of the image.
       /// </summary>
       /// <value>The topmost coordinate.</value>
-      [Aspect: OsProperty]
       Property Top : Double;
 
     {-- Method --}
@@ -150,10 +141,11 @@ Implementation
   Constructor ImageParameters;
 
   Begin
-    _Left   := -2.25;
-    _Right  :=  0.75;
-    _Bottom := -1.50;
-    _Top    :=  1.50
+    Left            :=  -2.25;
+    Right           :=   0.75;
+    Bottom          :=  -1.50;
+    Top             :=   1.50;
+    MaxNbIterations := 256;
     EscapeRadius    :=   2.0
   End;
 
