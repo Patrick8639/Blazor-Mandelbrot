@@ -21,11 +21,13 @@
     <EnableAsserts>True</EnableAsserts>
     <CpuType>anycpu</CpuType>
     <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+    <EmitTailCalls>False</EmitTailCalls>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>.\Bin</OutputPath>
     <CpuType>anycpu</CpuType>
     <EnableUnmanagedDebugging>False</EnableUnmanagedDebugging>
+    <EmitTailCalls>True</EmitTailCalls>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

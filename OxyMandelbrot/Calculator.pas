@@ -176,18 +176,24 @@ Implementation
     Var Stopwatch := New Stopwatch;
     Stopwatch.Start;
 
-    Var MaxNoCol := Parameters .NbColumns - 1;
-    Var XInc     := (Parameters.Right - Parameters.Left  ) / MaxNoCol;
-    Var YInc     := (Parameters.Top   - Parameters.Bottom) / MaxNoCol;
-
-    Rows := New Row [Parameters.NbRows];
+    Var MaxNbIter := Parameters.MaxNbIterations;
+    Var NbColumns := Parameters.NbColumns;
+    Var MaxNoCol  := NbColumns - 1;
+    Var Left      := Parameters.Left;
+    Var Bottom    := Parameters.Bottom;
+    Var XInc      := (Parameters.Right - Left  ) / MaxNoCol;
+    Var YInc      := (Parameters.Top   - Bottom) / MaxNoCol;
+    Var Rows      := New Row [Parameters.NbRows];
+    Self.Rows     := Rows;
 
     For Parallel ixRow : Int32 := 0 To Rows.Length - 1 Do Begin
-      Var Row := New Row (ixRow, Parameters.NbColumns);
-      Var Y   := Parameters.Bottom + (ixRow * YInc);
+      Var Row      := New Row (ixRow, NbColumns);
+      Rows [ixRow] := Row;
+      Var Points   := Row.Points;
+      Var Y        := Bottom + (ixRow * YInc);
+      Var X        := Left;
 
       For ixCol : Int32 := 0 To MaxNoCol Do Begin
-        Var X       := Parameters.Left + ixCol * XInc;
         Var NbIter  := 0;       // Number of iterations
         Var Real    := X;       // Real part of current value
         Var Imag    := Y;       // Imaginary part of current value
@@ -202,19 +208,21 @@ Implementation
             Break;
 
           Imag := (2 * Real * Imag) + Y;
-          Real := (RealSqr) - (ImagSqr) + X;
+          Real := RealSqr - ImagSqr + X;
 
           Inc (NbIter);
-          If NbIter >= Parameters.MaxNbIterations Then
+          If NbIter >= MaxNbIter Then
             Break
         End;
 
-        Row.Points [ixCol] := New Point (X, Y,
-                                         NbIterations := NbIter)
-      End;
+        Points [ixCol] := New Point (X, Y,
+                                     NbIterations := NbIter);
 
-      Rows [ixRow] := Row
+        X := X + XInc
+      End
+
     End;
+
 
     Stopwatch.Stop;
     _Duration := Stopwatch.Elapsed
